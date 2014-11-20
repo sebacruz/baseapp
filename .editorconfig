@@ -1,0 +1,17 @@
+# top-most EditorConfig file
+root = true
+
+# UTF8 files with unix-style newlines and a newline ending every file
+[*]
+charset = utf-8
+end_of_line = LF
+insert_final_newline = true
+
+# Remove any whitespace characters preceding newline characters
+[*]
+trim_trailing_whitespace = true
+
+# Default indentation
+[*]
+indent_style = space
+indent_size = 4
