@@ -1,0 +1,13 @@
+# PhpStorm
+
+.idea
+
+# Composer
+
+vendor
+composer.lock
+
+# App
+
+.env
+uploads

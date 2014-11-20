@@ -1,0 +1,15 @@
+{
+    "name": "sebacruz/baseapp",
+    "authors": [
+        {
+            "name": "Sebastián Cruz",
+            "email": "cruzjesussebastian@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "~2.4",
+        "j4mie/idiorm": "~1.5",
+        "guzzlehttp/guzzle": "~5.0",
+        "vlucas/phpdotenv": "~1.0"
+    }
+}

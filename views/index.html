@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>My Super Web2.0 App</title>
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+        <style>
+        body {
+            padding:30px 0;
+        }
+
+        .nav {
+            margin-bottom:30px;
+        }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <header class="page-header">
+                <h1>My Super Web2.0 App</h1>
+            </header>
+
+            <ul class="nav nav-tabs">
+                <li <?php if ($section === 'home') : ?>class="active"<?php endif; ?>><a href="<?php echo $app->urlFor('home'); ?>">Server</a></li>
+                <li <?php if ($section === 'get') : ?>class="active"<?php endif; ?>><a href="<?php echo $app->urlFor('request', ['type' => 'get']); ?>">GET</a></li>
+                <li <?php if ($section === 'post') : ?>class="active"<?php endif; ?>><a href="<?php echo $app->urlFor('request', ['type' => 'post']); ?>">POST</a></li>
+            </ul>
+
+            <pre><?php var_dump($info); ?></pre>
+        </div>
+
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    </body>
+</html>
