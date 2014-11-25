@@ -19,7 +19,9 @@ session_cache_limiter(FALSE);
 session_start();
 
 /**
- * Load environment config
+ * Load environment config file
+ *
+ * @link https://github.com/vlucas/phpdotenv/blob/master/README.md
  */
 
 Dotenv::load(__DIR__);
@@ -27,15 +29,18 @@ Dotenv::load(__DIR__);
 /**
  * Database configuration
  *
- * @todo Uncomment this if you will use a database or remove it and use the orm or class or whatever you want
+ * We are using Idiorm as a default ORM, RTFM!!!
+ *
  * @link http://idiorm.readthedocs.org/en/latest/configuration.html
  */
 
-// ORM::configure([
-//     'connection_string' => getenv('DB_DSN'),
-//     'username'          => getenv('DB_USER'),
-//     'password'          => getenv('DB_PASS')
-// ]);
+if (getenv('DB_DSN')) :
+     ORM::configure([
+         'connection_string' => getenv('DB_DSN'),
+         'username'          => getenv('DB_USER'),
+         'password'          => getenv('DB_PASS')
+     ]);
+endif;
 
 /**
  * App core configuration
@@ -46,14 +51,19 @@ Dotenv::load(__DIR__);
  * @link http://docs.slimframework.com/#Configuration-Overview
  */
 
+$env = getenv('ENVIRONMENT') ? getenv('ENVIRONMENT') : 'production';
+
 $app = new Slim([
-    'mode'           => getenv('ENVIRONMENT'),
+    'mode'           => $env,
     'debug'          => TRUE,
     'templates.path' => __DIR__ . '/app/views'
 ]);
 
 /**
  * App routes definition
+ *
+ * @todo Delete this routes and set the real ones
+ * @link http://docs.slimframework.com/#Routing-Overview
  */
 
 // dump $_SERVER
