@@ -6,6 +6,11 @@
             "email": "cruzjesussebastian@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/src/"
+        }
+    },
     "require": {
         "slim/slim": "~2.4",
         "j4mie/idiorm": "~1.5",

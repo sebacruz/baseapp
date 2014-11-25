@@ -1,5 +1,14 @@
 <?php
 
+use Slim\Slim;
+
+/**
+ * This app is PSR-4 compatible.
+ * Store all your classes in the "app/src" folder and use the App namespace.
+ */
+use App\Utils;
+use App\Model\Info;
+
 require 'vendor/autoload.php';
 
 /**
@@ -18,6 +27,7 @@ Dotenv::load(__DIR__);
 /**
  * Database configuration
  *
+ * @todo Uncomment this if you will use a database or remove it and use the orm or class or whatever you want
  * @link http://idiorm.readthedocs.org/en/latest/configuration.html
  */
 
@@ -36,10 +46,10 @@ Dotenv::load(__DIR__);
  * @link http://docs.slimframework.com/#Configuration-Overview
  */
 
-$app = new \Slim\Slim([
+$app = new Slim([
     'mode'           => getenv('ENVIRONMENT'),
     'debug'          => TRUE,
-    'templates.path' => __DIR__ . '/views'
+    'templates.path' => __DIR__ . '/app/views'
 ]);
 
 /**
@@ -48,9 +58,13 @@ $app = new \Slim\Slim([
 
 // dump $_SERVER
 $app->get('/', function() use ($app) {
+    Utils::returnTrue();
+
+    $info = new Info();
+
     $app->render('index.html', [
         'app'     => $app,
-        'info'    => $_SERVER,
+        'info'    => $info,
         'section' => 'home'
     ]);
 })
@@ -58,13 +72,13 @@ $app->get('/', function() use ($app) {
 
 // dump $_GET or $_POST, $_GET by default
 $app->get('/request/:type', function($type) use ($app) {
-    $info    = $_GET;
     $section = 'get';
 
     if ($type === 'post') {
-        $info    = $_POST;
         $section = 'post';
     }
+
+    $info = new Info($section);
 
     $app->render('index.html', [
         'app'     => $app,
