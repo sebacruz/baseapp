@@ -1,5 +1,7 @@
 <?php
 
+require 'vendor/autoload.php';
+
 use Slim\Slim;
 
 /**
@@ -8,8 +10,6 @@ use Slim\Slim;
  */
 use App\Utils;
 use App\Model\Info;
-
-require 'vendor/autoload.php';
 
 /**
  * Init sessions
