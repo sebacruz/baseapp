@@ -56,8 +56,30 @@ $env = getenv('ENVIRONMENT') ? getenv('ENVIRONMENT') : 'production';
 $app = new Slim([
     'mode'           => $env,
     'debug'          => TRUE,
-    'templates.path' => __DIR__ . '/app/views'
+    'templates.path' => __DIR__ . '/app/views',
+    'log.enabled'    => true,
+    'log.level'      => \Slim\Log::DEBUG
 ]);
+
+error_reporting(E_ALL);
+
+$app->configureMode('production', function () use ($app) {
+    ini_set('display_errors', FALSE);
+    ini_set('error_log',      __DIR__ . '/app/logs/production.log');
+
+    $app->config([
+        'debug' => FALSE
+    ]);
+});
+
+$app->configureMode('development', function () use ($app) {
+    ini_set('display_errors', TRUE);
+    ini_set('error_log',      __DIR__ . '/app/logs/development.log');
+
+    $app->config([
+        'debug' => TRUE
+    ]);
+});
 
 /**
  * App routes definition
@@ -69,7 +91,7 @@ $app = new Slim([
 // dump $_SERVER
 $app->get('/', function() use ($app) {
     Utils::returnTrue();
-
+foo();
     $info = new Info();
 
     $app->render('index.html', [
