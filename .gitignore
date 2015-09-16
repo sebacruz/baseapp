@@ -11,3 +11,5 @@ composer.lock
 
 .env
 uploads
+app/logs
+!app/logs/.gitkeep
