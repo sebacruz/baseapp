@@ -1,0 +1,35 @@
+{
+  "paths": {
+    "source": "resources/assets/",
+    "dist": "assets/"
+  },
+  "dependencies": {
+    "app.css": {
+      "files": [
+        "less/app.less"
+      ]
+    },
+    "app.js": {
+      "files": [
+        "js/app.js"
+      ],
+      "bower": [
+        "jquery",
+        "bootstrap"
+      ]
+    },
+    "images": {
+      "files": [
+        "img/*"
+      ]
+    },
+    "fonts": {
+      "files": [
+        "fonts/**/*"
+      ],
+      "bower": [
+        "fontawesome"
+      ]
+    }
+  }
+}
