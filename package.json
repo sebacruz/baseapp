@@ -27,6 +27,9 @@
   "homepage": "https://github.com/sebacruz/baseapp#readme",
   "devDependencies": {
     "asset-builder": "^1.1.0",
+    "babel": "^6.1.18",
+    "babel-core": "^6.2.1",
+    "babel-preset-es2015": "^6.1.18",
     "browser-sync": "^2.10.0",
     "eslint": "^1.10.2",
     "eslint-config-airbnb": "^1.0.2",
@@ -42,5 +45,7 @@
     "lazypipe": "^1.0.1",
     "run-sequence": "^1.1.5",
     "yargs": "^3.30.0"
+  },
+  "dependencies": {
   }
 }

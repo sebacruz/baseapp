@@ -1,26 +1,28 @@
 /* eslint-env node, es6 */
 
+'use strict';
+
+import gulp from 'gulp';
+import merge from 'merge-stream';
+import lazypipe from 'lazypipe';
+import runSequence from 'run-sequence';
+import gulpif from 'gulp-if';
+import concat from 'gulp-concat';
+import uglify from 'gulp-uglify';
+import eslint from 'gulp-eslint';
+import less from 'gulp-less';
+import sass from 'gulp-sass';
+import cssnano from 'gulp-cssnano';
+import imagemin from 'gulp-imagemin';
+import sourcemaps from 'gulp-sourcemaps';
+import browserSync from 'browser-sync'; // require('browser-sync').create();
+
 const manifest = require('asset-builder')('./manifest.json');
 
 const argv = require('yargs')
   .default('production', false)
   .boolean('production', 'disable-fail')
   .argv;
-
-const gulp = require('gulp');
-const merge = require('merge-stream');
-const lazypipe = require('lazypipe');
-const runSequence = require('run-sequence');
-const gulpif = require('gulp-if');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
-const eslint = require('gulp-eslint');
-const less = require('gulp-less');
-const sass = require('gulp-sass');
-const cssnano = require('gulp-cssnano');
-const imagemin = require('gulp-imagemin');
-const sourcemaps = require('gulp-sourcemaps');
-const browserSync = require('browser-sync').create();
 
 
 // CLI options
@@ -275,25 +277,22 @@ gulp.task('watch', function() {
   });
 
   gulp.watch([
-    manifest.paths.source + 'backend/css/**/*',
-    manifest.paths.source + 'frontend/css/**/*',
-    manifest.paths.source + 'backend/less/**/*',
-    manifest.paths.source + 'frontnend/less/**/*',
+    manifest.paths.source + '/css/**/*',
+    manifest.paths.source + '/less/**/*',
+    manifest.paths.source + '/scss/**/*',
+    manifest.paths.source + '/sass/**/*',
   ], ['compile:css']);
 
   gulp.watch([
-    manifest.paths.source + 'backend/js/**/*',
-    manifest.paths.source + 'frontend/js/**/*',
+    manifest.paths.source + '/js/**/*',
   ], ['compile:js']);
 
   gulp.watch([
-    manifest.paths.source + 'backend/images/**/*',
-    manifest.paths.source + 'frontend/images/**/*',
+    manifest.paths.source + '/img/**/*',
   ], ['publish:img']);
 
   gulp.watch([
-    manifest.paths.source + 'backend/fonts/**/*',
-    manifest.paths.source + 'frontend/fonts/**/*',
+    manifest.paths.source + '/fonts/**/*',
   ], ['publish:fonts']);
 
   gulp.watch(['./manifest.json'], ['build']);
