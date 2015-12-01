@@ -7,9 +7,16 @@
 vendor
 composer.lock
 
+# Node and Bower dependencies
+
+node_modules
+bower_components
+
 # App
 
 .env
-uploads
-app/logs
-!app/logs/.gitkeep
+/public/assets
+/public/uploads/*
+!/public/uploads/.gitkeep
+/app/logs/*
+!/app/logs/.gitkeep
