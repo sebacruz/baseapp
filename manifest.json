@@ -1,0 +1,40 @@
+{
+  "config": {
+    "devUrl": "http://baseapp.dev"
+  },
+  "paths": {
+    "source": "resources/assets/",
+    "dist": "assets/"
+  },
+  "dependencies": {
+    "app.css": {
+      "files": [
+        "less/app.less"
+      ]
+    },
+    "vendor.js": {
+      "bower": [
+        "jquery",
+        "bootstrap"
+      ]
+    },
+    "app.js": {
+      "files": [
+        "js/app.js"
+      ]
+    },
+    "images": {
+      "files": [
+        "img/*"
+      ]
+    },
+    "fonts": {
+      "files": [
+        "fonts/**/*"
+      ],
+      "bower": [
+        "fontawesome"
+      ]
+    }
+  }
+}
