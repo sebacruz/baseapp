@@ -140,7 +140,7 @@ function writeFile(directory){
 /**
  * Lints configuration JSON and project JS
  */
-gulp.task('eslint', function(){
+gulp.task('lint:js', function(){
   return gulp.src(manifest.getProjectGlobs().js)
     .pipe(eslint())
     .pipe(eslint.format())
@@ -157,7 +157,7 @@ gulp.task('clean', require('del').bind(null, [manifest.paths.dist]))
  *
  * Run the JS taks for each javascript file specified in the manifest file
  */
-gulp.task("compile:js", ['eslint'], function(){
+gulp.task("compile:js", ['lint:js'], function(){
   var merged = merge()
 
   manifest.forEachDependency('js', function(dep){
