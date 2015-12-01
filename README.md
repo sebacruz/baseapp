@@ -34,7 +34,7 @@ credentials:
 
 Your assets sources are in the `resources/assets` directory.
 
-There's a few gulp tasks to work with assets, this tasks uses the manifest.js file to define the compiled assets.
+There's a few gulp tasks to work with assets, this tasks uses the `resources\assets\manifest.js` file to define the compiled assets.
 
 As an example, given the following definition:
 

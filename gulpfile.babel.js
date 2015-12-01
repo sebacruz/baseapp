@@ -15,9 +15,9 @@ import sass from 'gulp-sass';
 import cssnano from 'gulp-cssnano';
 import imagemin from 'gulp-imagemin';
 import sourcemaps from 'gulp-sourcemaps';
-import browserSync from 'browser-sync'; // require('browser-sync').create();
+import browserSync from 'browser-sync';
 
-let manifest = require('asset-builder')('./manifest.json');
+let manifest = require('asset-builder')('./resources/assets/manifest.json');
 
 const argv = require('yargs')
   .default('production', false)
