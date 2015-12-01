@@ -65,8 +65,8 @@ As an example, given the following definition:
 
 the resulting assets are compiled to:
 
-* *`public\assets\css\app.css`:* it will have the CSS from the [normalize.css](https://github.com/necolas/normalize.css) bower dependency and the files `resources\less\grid.less` and `resources\less\app.less` compiled to CSS.
-* *`public\assets\js\app.js`:* it will have the JS files from the jquery and bootstrap bower dependencies and the file `reources\js\core.js`.
+* **`public\assets\css\app.css`:** it will have the CSS from the [normalize.css](https://github.com/necolas/normalize.css) bower dependency and the files `resources\less\grid.less` and `resources\less\app.less` compiled to CSS.
+* **`public\assets\js\app.js`:** it will have the JS files from the jquery and bootstrap bower dependencies and the file `reources\js\core.js`.
 
 ### Tasks
 
