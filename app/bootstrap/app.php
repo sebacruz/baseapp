@@ -35,7 +35,7 @@ $env = getenv('ENVIRONMENT') ? getenv('ENVIRONMENT') : 'production';
 $app = new \Slim\Slim([
     'mode'           => $env,
     'debug'          => TRUE,
-    'templates.path' => APPPATH . '/views',
+    'templates.path' => ROOTPATH . '/resources/views',
     'log.enabled'    => true,
     'log.level'      => \Slim\Log::DEBUG
 ]);
@@ -48,14 +48,14 @@ $app = new \Slim\Slim([
 
 $app->configureMode('production', function () use ($app) {
     ini_set('display_errors', FALSE);
-    ini_set('error_log',      __DIR__ . '/app/logs/production.log');
+    ini_set('error_log', APPPATH . '/logs/production.log');
 
     $app->config('debug', FALSE);
 });
 
 $app->configureMode('development', function () use ($app) {
     ini_set('display_errors', TRUE);
-    ini_set('error_log',      __DIR__ . '/app/logs/development.log');
+    ini_set('error_log', APPPATH . '/logs/development.log');
 
     $app->config('debug', TRUE);
 });
@@ -68,6 +68,6 @@ require_once __DIR__ . '/hooks.php';
 /**
  * Loading app routes
  */
-require_once APPPATH . '/app.php';
+require_once APPPATH . '/routes.php';
 
 return $app;

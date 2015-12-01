@@ -15,7 +15,8 @@ bower_components
 # App
 
 .env
-/assets
-uploads
-app/logs
-!app/logs/.gitkeep
+/public/assets
+/public/uploads/*
+!/public/uploads/.gitkeep
+/app/logs/*
+!/app/logs/.gitkeep

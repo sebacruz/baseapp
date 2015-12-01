@@ -1,6 +1,5 @@
 {
   "name": "baseapp",
-  "version": "0.0.0",
   "description": "Skeleton for simple apps development.",
   "main": "index.js",
   "scripts": {
