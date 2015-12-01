@@ -10,29 +10,25 @@ Base App
 ## Setup
 
 1. Point the domain to the public directory.
+2. Install dependencies:
 
-  ```
+  ```shell
   $ composer install
   $ npm install
   $ bower install
   ```
 
-2. Copy .env.dist file to .env and set your needed environment variables, like database
+3. Copy .env.dist file to .env and set your needed environment variables, like database
 credentials:
 
-  ```
+  ```shell
   $ cp .env.dist .env
   $ vi .env
   ```
 
   If you don't set the `ENVIRONMENT` variable it will be "production" by default.
 
-3. Edit the file `app\routes.php` and set your app routes.
-4. Run the watch task, this will compile the app assets and run browser-sync so you can edit your sources and get the compiled versions automatically:
-
-  ```
-  $ gulp watch
-  ```
+4. Edit the file `app\routes.php` and set your app routes.
 
 ## Compiling assets
 
