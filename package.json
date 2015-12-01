@@ -28,6 +28,8 @@
   "devDependencies": {
     "asset-builder": "^1.1.0",
     "browser-sync": "^2.10.0",
+    "eslint": "^1.10.2",
+    "eslint-config-airbnb": "^1.0.2",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.0.0",
