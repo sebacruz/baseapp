@@ -298,6 +298,8 @@ gulp.task('watch', function() {
   ], ['publish:fonts']);
 
   gulp.watch(['./manifest.json'], ['build']);
+
+  gulp.start('build');
 });
 
 /**
