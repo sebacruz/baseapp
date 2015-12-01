@@ -28,13 +28,13 @@ credentials:
 
   If you don't set the `ENVIRONMENT` variable it will be "production" by default.
 
-4. Edit the file `app\routes.php` and set your app routes.
+4. Edit the file `app/routes.php` and set your app routes.
 
 ## Compiling assets
 
 Your assets sources are in the `resources/assets` directory.
 
-There's a few gulp tasks to work with assets, this tasks uses the `resources\assets\manifest.js` file to define the compiled assets.
+There's a few gulp tasks to work with assets, this tasks uses the `resources/assets/manifest.js` file to define the compiled assets.
 
 As an example, given the following definition:
 
@@ -65,8 +65,8 @@ As an example, given the following definition:
 
 the resulting assets are compiled to:
 
-* **`public\assets\css\app.css`:** it will have the CSS from the [normalize.css](https://github.com/necolas/normalize.css) bower dependency and the files `resources\less\grid.less` and `resources\less\app.less` compiled to CSS.
-* **`public\assets\js\app.js`:** it will have the JS files from the jquery and bootstrap bower dependencies and the file `reources\js\core.js`.
+* **`public/assets/css/app.css`:** it will have the CSS from the [normalize.css](https://github.com/necolas/normalize.css) bower dependency and the files `resources/less/grid.less` and `resources/less/app.less` compiled to CSS.
+* **`public/assets/js/app.js`:** it will have the JS files from the jquery and bootstrap bower dependencies and the file `reources/js/core.js`.
 
 ### Tasks
 
