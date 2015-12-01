@@ -17,7 +17,7 @@ import imagemin from 'gulp-imagemin';
 import sourcemaps from 'gulp-sourcemaps';
 import browserSync from 'browser-sync'; // require('browser-sync').create();
 
-const manifest = require('asset-builder')('./manifest.json');
+let manifest = require('asset-builder')('./manifest.json');
 
 const argv = require('yargs')
   .default('production', false)
@@ -259,6 +259,8 @@ gulp.task('publish:misc', function() {
  * Run all the build tasks with an clean up beforehand
  */
 gulp.task('build', ['clean'], function(callback) {
+  manifest = require('asset-builder')('./manifest.json');
+
   runSequence('compile:js', 'compile:css', ['publish:img', 'publish:fonts'], callback);
 });
 
@@ -277,22 +279,22 @@ gulp.task('watch', function() {
   });
 
   gulp.watch([
-    manifest.paths.source + '/css/**/*',
-    manifest.paths.source + '/less/**/*',
-    manifest.paths.source + '/scss/**/*',
-    manifest.paths.source + '/sass/**/*',
+    manifest.paths.source + 'css/**/*',
+    manifest.paths.source + 'less/**/*',
+    manifest.paths.source + 'scss/**/*',
+    manifest.paths.source + 'sass/**/*',
   ], ['compile:css']);
 
   gulp.watch([
-    manifest.paths.source + '/js/**/*',
+    manifest.paths.source + 'js/**/*',
   ], ['compile:js']);
 
   gulp.watch([
-    manifest.paths.source + '/img/**/*',
+    manifest.paths.source + 'img/**/*',
   ], ['publish:img']);
 
   gulp.watch([
-    manifest.paths.source + '/fonts/**/*',
+    manifest.paths.source + 'fonts/**/*',
   ], ['publish:fonts']);
 
   gulp.watch(['./manifest.json'], ['build']);

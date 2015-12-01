@@ -1,4 +1,7 @@
 {
+  "config": {
+    "devUrl": "http://baseapp.dev"
+  },
   "paths": {
     "source": "resources/assets/",
     "dist": "assets/"
@@ -9,13 +12,15 @@
         "less/app.less"
       ]
     },
-    "app.js": {
-      "files": [
-        "js/app.js"
-      ],
+    "vendor.js": {
       "bower": [
         "jquery",
         "bootstrap"
+      ]
+    },
+    "app.js": {
+      "files": [
+        "js/app.js"
       ]
     },
     "images": {
