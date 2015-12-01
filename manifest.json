@@ -4,7 +4,7 @@
   },
   "paths": {
     "source": "resources/assets/",
-    "dist": "assets/"
+    "dist": "public/assets/"
   },
   "dependencies": {
     "app.css": {
