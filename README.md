@@ -1,18 +1,100 @@
 Base App
 =======
 
-First install the composer dependencies, if you don't have composer [go get it](https://getcomposer.org/doc/00-intro.md):
+## Requirements
 
-```
-$ composer install
-```
+* [Composer](https://getcomposer.org/)
+* [Gulp](http://gulpjs.com/)
+* [Bower](http://bower.io/)
 
-Copy .env.dist file to .env and set your needed environment variables, like database
+## Setup
+
+1. Point the domain to the public directory.
+
+  ```
+  $ composer install
+  $ npm install
+  $ bower install
+  ```
+
+2. Copy .env.dist file to .env and set your needed environment variables, like database
 credentials:
 
- ```
-$ cp .env.dist .env
-$ vi .env
+  ```
+  $ cp .env.dist .env
+  $ vi .env
+  ```
+
+  If you don't set the `ENVIRONMENT` variable it will be "production" by default.
+
+3. Edit the file `app\routes.php` and set your app routes.
+4. Run the watch task, this will compile the app assets and run browser-sync so you can edit your sources and get the compiled versions automatically:
+
+  ```
+  $ gulp watch
+  ```
+
+## Compiling assets
+
+Your assets sources are in the `resources/assets` directory.
+
+There's a few gulp tasks to work with assets, this tasks uses the manifest.js file to define the compiled assets.
+
+As an example, given the following definition:
+
+```json
+{
+  "dependencies": {
+    "app.css": {
+      "files": [
+        "less/grid.less",
+        "less/app.less"
+      ],
+      "bower": [
+        "normalize"
+      ]
+    },
+    "app.js": {
+      "files": [
+        "js/core.js"
+      ],
+      "bower": [
+        "jquery",
+        "bootstrap"
+      ]
+    }
+  }
+}
 ```
 
-If you don't set the ENVIRONMENT variable it will be "production" by default.
+the resulting assets are compiled to:
+
+* *`public\assets\css\app.css`:* it will have the CSS from the [normalize.css](https://github.com/necolas/normalize.css) bower dependency and the files `resources\less\grid.less` and `resources\less\app.less` compiled to CSS.
+* *`public\assets\js\app.js`:* it will have the JS files from the jquery and bootstrap bower dependencies and the file `reources\js\core.js`.
+
+### Tasks
+
+There's a few gulp tasks for work with assets:
+
+* `gulp clean`: deletes the assets destination path.
+* `gulp lint:js`: lints the JS code with [ESLint](http://eslint.org/) using the [Airbnb JavaScript style guide](https://github.com/airbnb/javascript/).
+* `compile:js`: compiles the JS files defined in the manifest.json file.
+* `compile:css`: compiles the CSS files defined in the manifes.json file.
+* `gulp publish:img`: optimize the project images with [imagemin](https://github.com/imagemin/imagemin) and places it in the public assets directory.
+* `gulp publish:fonts`: publish the project fonts in the public assets directory.
+* `gulp publish:misc`: dump stuff that isn't supported by the asset-builder module (like flash files) to the public directory.
+* `gulp build`: clean the public assets directory and publish the CSS, JS, images, fonts and other assets stuff.
+* `gulp watch`: run [Browsersync](http://www.browsersync.io/).
+
+## RTFM
+
+This app depends on various projects if you are having some troubles read the project's docs and if you can't fix it  [leave an issue](https://github.com/sebacruz/baseapp/issues).
+
+* [Composer](https://getcomposer.org/): used to handle the php dependencies.
+* [Bower](http://bower.io/): used to handle the frontend dependencies.
+* [Gulp](http://gulpjs.com/): used to run automated tasks.
+* [Browsersync](http://www.browsersync.io/): synchronizes file changes and interactions across multiple devices
+* [Babel](https://babeljs.io/): ECMAScript 6 to ECMAScript 5 compiler.
+* [Slim Framework](http://www.slimframework.com/): the core of this app.
+* [ESLint](http://eslint.org/): lints the JS code using the [Airbnb JavaScript style guide](https://github.com/airbnb/javascript/).
+* [asset-builder](https://github.com/austinpray/asset-builder): assembles and orchestrates your dependencies so you can run them through your asset pipeline.
