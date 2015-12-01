@@ -18,5 +18,5 @@ bower_components
 /public/assets
 /public/uploads/*
 !/public/uploads/.gitkeep
-/logs
-!/logs/.gitkeep
+/app/logs/*
+!/app/logs/.gitkeep

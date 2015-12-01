@@ -48,14 +48,14 @@ $app = new \Slim\Slim([
 
 $app->configureMode('production', function () use ($app) {
     ini_set('display_errors', FALSE);
-    ini_set('error_log', ROOTPATH . '/logs/production.log');
+    ini_set('error_log', APPPATH . '/logs/production.log');
 
     $app->config('debug', FALSE);
 });
 
 $app->configureMode('development', function () use ($app) {
     ini_set('display_errors', TRUE);
-    ini_set('error_log', ROOTPATH . '/logs/development.log');
+    ini_set('error_log', APPPATH . '/logs/development.log');
 
     $app->config('debug', TRUE);
 });
