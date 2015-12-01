@@ -238,7 +238,7 @@ gulp.task('publish:fonts', function() {
 });
 
 /**
- * Random vendor stuff publising
+ * Random vendor stuff publishing
  *
  * This task dumps stuff that isn't suported by the asset-builder module,
  * like flash files, to an public directory.
