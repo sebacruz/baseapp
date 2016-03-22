@@ -259,7 +259,7 @@ gulp.task('publish:misc', function() {
  * Run all the build tasks with an clean up beforehand
  */
 gulp.task('build', ['clean'], function(callback) {
-  manifest = require('asset-builder')('./manifest.json');
+  manifest = require('asset-builder')('./resources/assets/manifest.json');
 
   runSequence('compile:js', 'compile:css', ['publish:img', 'publish:fonts'], callback);
 });
