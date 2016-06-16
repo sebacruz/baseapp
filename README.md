@@ -26,7 +26,7 @@ credentials:
   $ vi .env
   ```
 
-  If you don't set the `RICO_ENV` variable it will be "production" by default.
+  If you don't set the `APP_ENV` variable it will be "production" by default.
 
 4. Edit the file `src/routes.php` and set your app routes.
 
