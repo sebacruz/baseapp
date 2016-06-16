@@ -2,7 +2,7 @@
 
 return [
     'settings' => [
-        'displayErrorDetails' => true,
+        'displayErrorDetails' => getenv('APP_ENV') === 'development',
 
         // Renderer settings
         'renderer' => [

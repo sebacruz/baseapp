@@ -13,11 +13,11 @@ use \Psr\Http\Message\ResponseInterface as Response;
 // @todo TODO: replace this dummy routes with the real ones
 
 // Home
-$app->get('/', function(Request $request, Response $response, $args) use ($app) {
+$app->get('/', function(Request $request, Response $response, $args) {
     return $this->renderer->render($response, 'index.html', $args);
 })->setName('home');
 
-$app->get('/json', function(Request $request, Response $response) use ($app) {
+$app->get('/json[/{id}]', function(Request $request, Response $response) {
     return $response->withJson([
         [
             'id' => '1',
