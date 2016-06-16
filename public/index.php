@@ -10,8 +10,8 @@ require ROOTPATH . '/vendor/autoload.php';
 // Init sessions
 session_start();
 
-// Error reporting
-error_reporting(E_ALL);
+// Disable error reporting
+error_reporting(0);
 
 /**
  * Load environment config file
