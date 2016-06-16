@@ -7,7 +7,7 @@
 
         <title>My Super Web2.0 App</title>
 
-        <link rel="stylesheet" href="/assets/css/app.css">
+        <link rel="stylesheet" href="<?php echo $basePath; ?>/assets/css/app.css">
 
         <style>
         body {
@@ -25,17 +25,9 @@
             <header class="page-header">
                 <h1><i class="fa fa-heart"></i> My Super Web2.0 App</h1>
             </header>
-
-            <ul class="nav nav-tabs">
-                <li <?php if ($section === 'home') : ?>class="active"<?php endif; ?>><a href="<?php echo $app->urlFor('home'); ?>">Server</a></li>
-                <li <?php if ($section === 'get') : ?>class="active"<?php endif; ?>><a href="<?php echo $app->urlFor('request', ['type' => 'get']); ?>">GET</a></li>
-                <li <?php if ($section === 'post') : ?>class="active"<?php endif; ?>><a href="<?php echo $app->urlFor('request', ['type' => 'post']); ?>">POST</a></li>
-            </ul>
-
-            <pre><?php var_dump($info); ?></pre>
         </div>
 
-        <script src="/assets/js/vendor.js"></script>
-        <script src="/assets/js/app.js"></script>
+        <script src="<?php echo $basePath; ?>/assets/js/vendor.js"></script>
+        <script src="<?php echo $basePath; ?>/assets/js/app.js"></script>
     </body>
 </html>
