@@ -1,6 +1,7 @@
 {
     "name": "sebacruz/baseapp",
     "type": "project",
+    "license": "MIT",
     "authors": [
         {
             "name": "Sebastián Cruz",
