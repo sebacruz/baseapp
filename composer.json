@@ -1,5 +1,6 @@
 {
     "name": "sebacruz/baseapp",
+    "type": "project",
     "authors": [
         {
             "name": "Sebastián Cruz",
@@ -8,13 +9,21 @@
     ],
     "autoload": {
         "psr-4": {
-            "App\\": "app/src/"
-        }
+            "App\\": "src/"
+        },
+        "files": [
+          "src/helpers.php"
+        ]
     },
     "require": {
-        "slim/slim": "~2.4",
+        "php": ">=5.5.0",
+        "slim/slim": "^3",
         "j4mie/idiorm": "~1.5",
-        "guzzlehttp/guzzle": "~5.0",
-        "vlucas/phpdotenv": "~1.0"
+        "vlucas/phpdotenv": "~1.0",
+        "slim/php-view": "^2.1",
+        "monolog/monolog": "^1.19"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^3.2"
     }
 }
