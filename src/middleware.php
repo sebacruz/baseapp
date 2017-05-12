@@ -12,8 +12,6 @@ $app->add(function ($request, $response, $next) use ($app) {
         'basePath' => $request->getUri()->getBasePath()
     ]);
 
-    $this->logger->info('asdssss sss');
-
     $response = $next($request, $response);
 
     return $response;

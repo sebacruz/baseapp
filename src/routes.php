@@ -10,7 +10,7 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 // Sample routes
-// @todo TODO: replace this dummy routes with the real ones
+// TODO: replace this dummy routes with the real ones
 
 // Home
 $app->get('/', function(Request $request, Response $response, $args) {
