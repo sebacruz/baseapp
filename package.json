@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node ./node_modules/.bin/webpack",
     "build:prod": "NODE_ENV=production node ./node_modules/.bin/webpack -p",
-    "server": "php -S 0.0.0.0:8080 -t public server.php"
+    "serve": "php -S 0.0.0.0:8080 -t public server.php"
   },
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
   },
   "keywords": [
     "php",
-    "bower",
+    "webpack",
     "composer",
     "skeleton"
   ],
