@@ -5,12 +5,12 @@ Base App
 
 * [Composer](https://getcomposer.org/)
 * [node](https://nodejs.org/)
-* [webpack](https://webpack.js.org/)
 
 ## Setup
 
 ```shell
 $ composer create-project sebacruz/baseapp app
+$ npm install
 ```
 
 ## Local Development Server
