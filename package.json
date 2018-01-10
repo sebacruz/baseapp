@@ -6,8 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=development webpack --config webpack.dev.js",
     "build:prod": "NODE_ENV=production webpack -p --config webpack.prod.js",
-    "start": "NODE_ENV=development webpack-dev-server --config webpack.dev.js",
-    "serve": "php -S localhost:8080 -t public server.php"
+    "start": "NODE_ENV=development webpack-dev-server --config webpack.dev.js"
   },
   "repository": {
     "type": "git",
