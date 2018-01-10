@@ -7,13 +7,17 @@
 
         <title>My Super Web2.0 App</title>
 
+        <?php if (file_get_contents('http://localhost:3000/')) : ?>
+        <link rel="stylesheet" href="//localhost:3000<?php echo asset('front.css'); ?>">
+        <?php else : ?>
         <link rel="stylesheet" href="<?php echo asset('front.css'); ?>">
+        <?php endif; ?>
     </head>
 
     <body>
         <div class="container">
             <header class="page-header">
-                <h1><i class="fa fa-heart"></i> My Super Web2.0 App</h1>
+                <h1>My Super Web2.0 App</h1>
             </header>
 
             <div class="row">
@@ -23,6 +27,10 @@
             </div>
         </div>
 
-        <script src="<?php echo asset('front.js'); ?>"></script>
+        <?php if (file_get_contents('http://localhost:3000/')) : ?>
+        <script src="//localhost:3000<?php echo asset('app.js'); ?>"></script>
+        <?php else : ?>
+        <script src="<?php echo asset('app.js'); ?>"></script>
+        <?php endif; ?>
     </body>
 </html>
