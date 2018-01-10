@@ -34,29 +34,17 @@ if (!file_exists('asset')) {
     {
         static $manifest;
 
-        if (starts_with($path, '/')) {
-            $path = ltrim($path, '');
-        }
+        $assetPath = $path;
+        $manifestPath = realpath(PUBLICPATH . $manifestDirectory) . '/manifest.json';
 
-        if ($manifestDirectory && !starts_with($manifestDirectory, '/')) {
-            $manifestDirectory = "/{$manifestDirectory}";
-        }
-
-        if (!$manifest) {
-            if (!file_exists($manifestPath = PUBLICPATH . '/assets/manifest.json')) {
-                throw new Exception('The assets manifest does not exist.');
-            }
-
+        if (!$manifest && file_exists($manifestPath)) {
             $manifest = json_decode(file_get_contents($manifestPath), true);
         }
 
-        if (!array_key_exists($path, $manifest)) {
-            throw new Exception(
-                "Unable to locate asset file: {$path}. Please check your ".
-                'webpack output paths and try again.'
-            );
+        if ($manifest && array_key_exists($path, $manifest)) {
+            $assetPath = $manifest[$path];
         }
 
-        return $manifestDirectory . $manifest[$path];
+        return $manifestDirectory . $assetPath;
     }
 }
